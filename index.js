@@ -108,13 +108,7 @@ ConfirmationNotification.prototype.onok = function(e){
 
 ConfirmationNotification.prototype.message = function(msg){
   var el = this.actions.find('.confirmation-notification-message');
-
-  if ('string' == typeof msg) {
-    el.text(msg);
-  } else if (msg) {
-    el.replaceWith(msg.el || msg);
-  }
-
+  el.html(msg);
   return this;
 };
 
