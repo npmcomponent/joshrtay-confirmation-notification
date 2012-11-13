@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -108,7 +107,14 @@ ConfirmationNotification.prototype.onok = function(e){
  */
 
 ConfirmationNotification.prototype.message = function(msg){
-  this.actions.find('.confirmation-notification-message').text(msg);
+  var el = this.actions.find('.confirmation-notification-message');
+
+  if ('string' == typeof msg) {
+    el.text(msg);
+  } else if (msg) {
+    el.replaceWith(msg.el || msg);
+  }
+
   return this;
 };
 
